@@ -194,6 +194,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32502619}
   m_CullTransparentMesh: 1
+--- !u!1 &124518894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124518895}
+  - component: {fileID: 124518896}
+  m_Layer: 0
+  m_Name: CameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &124518895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124518894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &124518896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124518894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19021a883a54c884da8a84a319b31715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraTargetSingleton
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,17 +744,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_PointAction: {fileID: 7768857143103663552, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_MoveAction: {fileID: 1134924227266016236, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_SubmitAction: {fileID: 126994047202105386, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_CancelAction: {fileID: 920590459637500655, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_LeftClickAction: {fileID: -8142768140157004245, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_MiddleClickAction: {fileID: 5582760286377986397, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_RightClickAction: {fileID: -6039260726200957748, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_ScrollWheelAction: {fileID: 2505769038329291344, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 3872913002155958692, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -4702116173403785835, guid: 65036fb9f605c70468847ad81bf1cfc9, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -914,7 +958,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: b4757befeb4af99468e8be810d7cbb2f, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 59d301e2b2fcadc4392cb34708c1774c, type: 2}
 --- !u!4 &832575519
 Transform:
   m_ObjectHideFlags: 0
@@ -2071,7 +2115,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 124518895}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -2195,6 +2239,7 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 789129324}
   - {fileID: 2045559192}
+  - {fileID: 124518895}
   - {fileID: 811731053}
   - {fileID: 1224510102}
   - {fileID: 1682945066}
