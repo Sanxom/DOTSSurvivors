@@ -23,6 +23,7 @@ public class CharacterAuthoring : MonoBehaviour
 
     #region Public Properties
     [field: SerializeField] public float MoveSpeed { get; private set; }
+    [field: SerializeField] public int HitPoints { get; private set; }
     #endregion
 
     #region Unity Callbacks
@@ -49,6 +50,15 @@ public class CharacterAuthoring : MonoBehaviour
             {
                 Value = 1f
             });
+            AddComponent(entity, new CharacterMaxHitPoints
+            {
+                Value = authoring.HitPoints
+            });
+            AddComponent(entity, new CharacterCurrentHitPoints
+            {
+                Value = authoring.HitPoints,
+            });
+            AddBuffer<DamageThisFrame>(entity);
         }
     }
 }
@@ -118,6 +128,28 @@ public partial struct GlobalTimeUpdateSystem : ISystem
     }
 }
 
+public partial struct ProcessDamageThisFrameSystem : ISystem
+{
+    [BurstCompile]
+    public void OnUpdate(ref SystemState state)
+    {
+        foreach ((RefRW<CharacterCurrentHitPoints> hitPoints, 
+            DynamicBuffer<DamageThisFrame> damageThisFrame) in 
+            SystemAPI.Query<RefRW<CharacterCurrentHitPoints>, 
+            DynamicBuffer<DamageThisFrame>>())
+        {
+            if (damageThisFrame.IsEmpty) continue;
+
+            foreach (DamageThisFrame damage in damageThisFrame)
+            {
+                hitPoints.ValueRW.Value -= damage.Value;    
+            }
+
+            damageThisFrame.Clear();
+        }
+    }
+}
+
 public struct CharacterMoveDirection : IComponentData
 {
     public float2 Value;
@@ -132,6 +164,21 @@ public struct CharacterMoveSpeed : IComponentData
 public struct FacingDirectionOverride : IComponentData
 {
     public float Value;
+}
+
+public struct CharacterMaxHitPoints : IComponentData
+{
+    public int Value;
+}
+
+public struct CharacterCurrentHitPoints : IComponentData
+{
+    public int Value;
+}
+
+public struct DamageThisFrame : IBufferElementData
+{
+    public int Value;
 }
 
 public struct InitializeCharacterFlag : IComponentData, IEnableableComponent
